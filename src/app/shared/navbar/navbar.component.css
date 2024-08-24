@@ -1,0 +1,10 @@
+.fa {
+  font-size: 40px;
+  color: #000;
+}
+
+.fa:hover {
+  color: #515151;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
