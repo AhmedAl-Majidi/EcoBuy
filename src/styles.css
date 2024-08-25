@@ -1,13 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-/* src/styles.css or src/styles.scss */
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap");
 
-@font-face {
-  font-family: "Google Sans Mono";
-  src: url("assets/fonts/Google-Sans-Mono-Medium.ttf") format("truetype");
-  font-weight: 500; /* Medium weight */
-}
-
-body {
-  font-family: "Google Sans Mono Medium", monospace;
+* {
+  font-family: "Roboto Slab", sans-serif;
 }

@@ -1,4 +1,5 @@
 <div class="container">
+  <!-- search and filter -->
   <div class="d-flex">
     <div class="mb-3">
       <label class="form-label">Search</label>
@@ -10,7 +11,7 @@
         (input)="onSearchChange()"
       />
     </div>
-    <div class="mb-4">
+    <div class="mb-3 mx-3">
       <label class="form-label">Categories</label>
       <select
         title="Select a category"
@@ -26,6 +27,7 @@
     </div>
   </div>
 
+  <!-- product cards -->
   <section class="row">
     <div class="row">
       <div
@@ -49,7 +51,7 @@
             <div class="d-flex mt-3">
               <p class="card-text">
                 <strong>{{ product.price }}$</strong>
-                <small class="text-muted"
+                <small class="text-muted mx-2"
                   >{{ product.discountPercentage }}% off</small
                 >
               </p>
