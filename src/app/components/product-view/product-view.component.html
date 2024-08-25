@@ -1,20 +1,33 @@
 <div class="container mt-4">
-    <div class="card shadow-sm p-3 mb-5 bg-white rounded">
-      <div class="row g-0">
-        <div class="col-md-4">
-            <img class="product-image" src="{{product.images[0]}}" alt="{{product.title}}" >
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h2 class="card-title">{{ product.title }}</h2>
-            <p class="card-text"><strong>Brand:</strong> {{ product.brand }}</p>
-            <p class="card-text"><strong>Category:</strong> {{ product.category }}</p>
-            <p class="card-text"><strong>Price:</strong> {{ product.price | currency: 'USD' }}</p>
-            <p class="card-text">{{ product.description }}</p>
-            <button type="button" class="btn btn-light mt-3" (click)="addToCart()">Add to cart</button>
-          </div>
+  <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img
+          class="product-image"
+          src="{{ product.images[0] }}"
+          alt="{{ product.title }}"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">{{ product.title }}</h2>
+          <p class="card-text"><strong>Brand:</strong> {{ product.brand }}</p>
+          <p class="card-text">
+            <strong>Category:</strong> {{ product.category }}
+          </p>
+          <p class="card-text">
+            <strong>Price:</strong> {{ product.price | currency : "USD" }}
+          </p>
+          <p class="card-text">{{ product.description }}</p>
+          <button
+            type="button"
+            class="btn btn-light mt-3 w-100"
+            (click)="addToCart()"
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
