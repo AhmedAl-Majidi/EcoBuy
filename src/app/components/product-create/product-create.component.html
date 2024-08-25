@@ -4,45 +4,98 @@
       <h2>Add New Product</h2>
     </div>
     <div class="card-body">
-  <form [formGroup]="productForm" (ngSubmit)="addNewProduct()">
-    <div class="mb-3">
-    <label for="title" class="form-label">Title:</label>
-    <input id="title" formControlName="title" class="form-control" placeholder="Enter product title">
+      <form [formGroup]="productForm" (ngSubmit)="createNewProduct()">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input
+            id="title"
+            formControlName="title"
+            class="form-control"
+            placeholder="Enter product title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description:</label>
+          <input
+            id="description"
+            formControlName="description"
+            class="form-control"
+            placeholder="Enter product description"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Category:</label>
+          <input
+            id="category"
+            formControlName="category"
+            class="form-control"
+            placeholder="Enter product category"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <input
+            id="price"
+            type="number"
+            formControlName="price"
+            class="form-control"
+            placeholder="Enter product price"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="discountPercentage" class="form-label"
+            >Discount Percentage:</label
+          >
+          <input
+            id="discountPercentage"
+            type="number"
+            formControlName="discountPercentage"
+            class="form-control"
+            placeholder="Enter discount percentage"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating:</label>
+          <input
+            id="rating"
+            type="number"
+            formControlName="rating"
+            class="form-control"
+            placeholder="Enter product rating"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label">Stock:</label>
+          <input
+            id="stock"
+            type="number"
+            formControlName="stock"
+            class="form-control"
+            placeholder="Enter product stock"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="brand" class="form-label">Brand:</label>
+          <input
+            id="brand"
+            formControlName="brand"
+            class="form-control"
+            placeholder="Enter product brand"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="images" class="form-label"
+            >Images (comma-separated URLs):</label
+          >
+          <input
+            id="images"
+            formControlName="images"
+            class="form-control"
+            placeholder="Enter image URLs"
+          />
+        </div>
+        <button type="submit" class="btn btn-dark w-100">Add Product</button>
+      </form>
+    </div>
   </div>
-  <div class="mb-3">
-    <label for="description" class="form-label">Description:</label>
-    <input id="description" formControlName="description" class="form-control" placeholder="Enter product description">
-  </div>
-  <div class="mb-3">
-    <label for="category" class="form-label">Category:</label>
-    <input id="category" formControlName="category" class="form-control" placeholder="Enter product category">
-  </div>
-  <div class="mb-3">
-    <label for="price" class="form-label">Price:</label>
-    <input id="price" type="number" formControlName="price" class="form-control" placeholder="Enter product price">
-  </div>
-  <div class="mb-3">
-    <label for="discountPercentage" class="form-label">Discount Percentage:</label>
-    <input id="discountPercentage" type="number" formControlName="discountPercentage" class="form-control" placeholder="Enter discount percentage">
-  </div>
-  <div class="mb-3">
-    <label for="rating" class="form-label">Rating:</label>
-    <input id="rating" type="number" formControlName="rating" class="form-control" placeholder="Enter product rating">
-  </div>
-  <div class="mb-3">
-    <label for="stock" class="form-label">Stock:</label>
-    <input id="stock" type="number" formControlName="stock" class="form-control" placeholder="Enter product stock">
-  </div>
-  <div class="mb-3">
-    <label for="brand" class="form-label">Brand:</label>
-    <input id="brand" formControlName="brand" class="form-control" placeholder="Enter product brand">
-  </div>
-  <div class="mb-3">
-    <label for="images" class="form-label">Images (comma-separated URLs):</label>
-    <input id="images" formControlName="images" class="form-control" placeholder="Enter image URLs">
-  </div>
-  <button type="submit" class="btn btn-dark w-100">Add Product</button>
-</form>
-</div>
-</div>
 </div>
