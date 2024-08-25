@@ -56,10 +56,21 @@
                 >
               </p>
             </div>
-            <p class="card-text mt-2">
-              <small class="text-muted">Category: {{ product.category }}</small>
-              | <small class="text-muted">Rating: {{ product.rating }}</small>
-            </p>
+            <!-- Rating -->
+            <div class="text-muted d-flex justify-content-between">
+              <p class="card-text mt-2">
+                <small class="text-muted"
+                  >Category: {{ product.category }}</small
+                >
+              </p>
+              <ngx-stars
+                [readonly]="false"
+                [size]="1"
+                [initialStars]="product.rating"
+                color="gold"
+                class="d-flex"
+              ></ngx-stars>
+            </div>
             <button
               class="btn btn-dark p-1 mb-2 w-100"
               (click)="viewDetails(product.id)"
