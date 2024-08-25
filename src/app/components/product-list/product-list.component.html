@@ -45,11 +45,23 @@
         </div>
         <!-- card body -->
         <div class="card-body d-flex flex-column justify-content-between">
-          <div>
+          <div class="d-flex flex-column justify-content-between">
             <h5 class="card-title">{{ product.title }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ product.brand }}</h6>
-            <p class="card-text">{{ product.description }}</p>
+            <!-- <p class="card-text">{{ product.description }}</p> -->
+            <div>
+              <p>
+                {{ product.showMore ? product.description : (product.description | slice: 0:100) }}...
+              </p>
+              <a  (click)="toggleReadMore(product)" class="read-more-link text-secondary">
+                {{ product.showMore ? 'Read Less' : 'Read More' }}
+              </a>
+            </div>
           </div>
+
+        <div class=" d-flex flex-column justify-content-between">
+
+          <!-- price and discount  -->
           <div class="d-flex mt-3">
             <p class="card-text">
               <strong>{{ product.price }}$</strong>
@@ -71,12 +83,15 @@
               class="d-flex"
             ></ngx-stars>
           </div>
-          <button
+          <div>
+            <button
             class="btn btn-dark p-1 mb-2 w-100"
             (click)="viewDetails(product.id)"
-          >
+            >
             View Details
           </button>
+        </div>
+        </div>
         </div>
       </div>
     </div>

@@ -86,4 +86,9 @@ export class ProductListComponent implements OnInit {
   viewDetails(id: number): void {
     this.router.navigate(['/products', id]);
   }
+
+  // 
+  toggleReadMore(product: any) {
+    product.showMore = !product.showMore;
+  }
 }

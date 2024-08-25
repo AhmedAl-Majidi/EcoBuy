@@ -9,6 +9,7 @@ export interface Product {
   stock: number;
   brand: string;
   images: string[];
+  showMore: boolean;
 }
 
 

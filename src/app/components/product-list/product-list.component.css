@@ -17,3 +17,10 @@
   height: 100%;
   object-fit: cover;
 }
+
+/*  */
+
+.read-more-link {
+  cursor: pointer; /* Add a pointer cursor */
+  text-decoration: none; /* Optional: Underline to emphasize it's clickable */
+}
