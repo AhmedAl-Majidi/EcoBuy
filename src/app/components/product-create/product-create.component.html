@@ -24,13 +24,24 @@
           />
         </div>
         <div class="mb-3">
-          <label for="category" class="form-label">Category:</label>
+          <!-- <label for="category" class="form-label">Category:</label>
           <input
             id="category"
             formControlName="category"
             class="form-control"
             placeholder="Enter product category"
-          />
+          /> -->
+          <label class="form-label">Categories</label>
+      <select
+        title="Select a category"
+        class="form-select"
+        formControlName="category"
+      >
+        <option value="">All</option>
+        <option *ngFor="let category of categories$" [value]="category.name">
+          {{ category.name }}
+        </option>
+      </select>
         </div>
         <div class="mb-3">
           <label for="price" class="form-label">Price:</label>
@@ -52,16 +63,6 @@
             formControlName="discountPercentage"
             class="form-control"
             placeholder="Enter discount percentage"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="rating" class="form-label">Rating:</label>
-          <input
-            id="rating"
-            type="number"
-            formControlName="rating"
-            class="form-control"
-            placeholder="Enter product rating"
           />
         </div>
         <div class="mb-3">
