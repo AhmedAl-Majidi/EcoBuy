@@ -10,12 +10,15 @@ export class ProductService {
   constructor(private http: HttpClient) {}
   apiUrl = 'https://dummyjson.com/products';
 
-  getProductById(id: number): Observable<Product> {
-    return this.http.get<any>(`https://dummyjson.com/products/${id}`);
+  getProductById(id: number): Observable<Product> {    
+    return this.http.get<Product>(`https://dummyjson.com/products/${id}`);    
   }
 
-  getProducts(): Observable<ProductResponse> {
-    return this.http.get(this.apiUrl) as Observable<ProductResponse>;
+  // getProducts(): Observable<ProductResponse> {
+  //   return this.http.get(this.apiUrl) as Observable<ProductResponse>;
+  // }
+  getProducts(): Observable<any> {
+    return this.http.get(this.apiUrl) ;
   }
 
   createProduct(product: Product): Observable<Product> {

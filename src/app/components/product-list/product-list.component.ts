@@ -53,7 +53,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     // Initially display all products
-    this.prodcutService.getProducts().subscribe((data: ProductResponse) => {
+    this.prodcutService.getProducts().subscribe((data) => {
       this.products = data.products;
       this.filteredProducts = this.products;
     });
@@ -73,13 +73,11 @@ export class ProductListComponent implements OnInit {
     this.applyFilters();
   }
 
+
   applyFilters(): void {
     this.filteredProducts = this.products.filter(
       (product) =>
-        product.title.toLowerCase().includes(this.searchTerm.toLowerCase()) &&
-        (this.selectedCategory
-          ? product.category === this.selectedCategory.toLowerCase()
-          : true)
+        product.title.toLowerCase().includes(this.searchTerm.toLowerCase()) &&        (this.selectedCategory ? product.category === this.selectedCategory.toLowerCase() : true)
     );
   }
   // Routing to product details pag
