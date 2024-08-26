@@ -6,7 +6,6 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
-  FormsModule,
 } from '@angular/forms';
 import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
@@ -15,7 +14,7 @@ import { NgFor } from '@angular/common';
 @Component({
   selector: 'app-product-create',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, NgFor],
+  imports: [ReactiveFormsModule, NgFor],
   templateUrl: './product-create.component.html',
   styleUrl: './product-create.component.css',
 })
