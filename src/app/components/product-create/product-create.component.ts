@@ -38,11 +38,10 @@ export class ProductCreateComponent  {
       this.productService.createProduct(newProduct).subscribe({
         next: (response) => {
           alert('Product added successfully:');
-          console.log(response);
         },
       });
     } else {
-      console.error('Form is invalid!');
+      alert('Form is invalid!');
     }
   }
   ngOnInit() {
@@ -64,7 +63,6 @@ export class ProductCreateComponent  {
   // populate this.categories from categoryService
  this.categoryService.getCategories().subscribe((categories) => {
    this.categories$ = categories;
-   console.log(this.categories$);
  });
 }
  
