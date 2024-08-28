@@ -13,6 +13,7 @@ import { CategoryService } from '../../services/category.service';
 import { NgxStarsModule } from 'ngx-stars';
 import { ParoductCardComponent } from "../paroduct-card/paroduct-card.component";
 import { SearchComponent } from "../search/search.component";
+import { SearchComponent } from "../search/search.component";
 
 @Component({
   selector: 'app-product-list',
@@ -26,10 +27,13 @@ import { SearchComponent } from "../search/search.component";
     NgxStarsModule,
     ParoductCardComponent,
     SearchComponent
+    ParoductCardComponent,
+    SearchComponent
 ],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
+export class ProductListComponent {
 export class ProductListComponent {
   filteredProducts: Product[] = [];
   
