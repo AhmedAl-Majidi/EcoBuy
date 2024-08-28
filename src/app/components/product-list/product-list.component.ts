@@ -11,6 +11,7 @@ import { CartService } from '../../services/cart.service';
 import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
 import { NgxStarsModule } from 'ngx-stars';
+import { ParoductCardComponent } from "../paroduct-card/paroduct-card.component";
 
 @Component({
   selector: 'app-product-list',
@@ -22,7 +23,8 @@ import { NgxStarsModule } from 'ngx-stars';
     RouterModule,
     FormsModule,
     NgxStarsModule,
-  ],
+    ParoductCardComponent
+],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
@@ -81,12 +83,12 @@ export class ProductListComponent implements OnInit {
     );
   }
   // Routing to product details pag
-  viewDetails(id: number): void {
-    this.router.navigate(['/products', id]);
-  }
+  // viewDetails(id: number): void {
+  //   this.router.navigate(['/products', id]);
+  // }
 
-  // 
-  toggleReadMore(product: any) {
-    product.showMore = !product.showMore;
-  }
+  // // 
+  // toggleReadMore(product: any) {
+  //   product.showMore = !product.showMore;
+  // }
 }
