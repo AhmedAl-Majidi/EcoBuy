@@ -15,10 +15,10 @@
         <!-- <p class="card-text">{{ InProduct.description }}</p> -->
         <div>
           <p>
-            {{ InProduct.showMore ? InProduct.description : (InProduct.description | slice: 0:100) }}...
+            {{  (InProduct.description | slice: 0:70) }}...
           </p>
-          <a  (click)="toggleReadMore(InProduct)" class="read-more-link text-secondary">
-            {{ InProduct.showMore ? 'Read Less' : 'Read More' }}
+          <a  (click)="viewDetails(InProduct.id)" class="read-more-link text-secondary">
+             Read More
           </a>
         </div>
       </div>
