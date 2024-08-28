@@ -32,12 +32,11 @@ export class SearchComponent {
     ngOnInit() {
       // Initially display all products
       this.prodcutService.getProducts().subscribe((data) => {
+        this.products = data.products;
         this.filteredProducts = data.products;
-        this.filteredProductsEmitter.emit(this.filteredProducts);    
+        this.filteredProductsEmitter.emit(this.filteredProducts);            
       });
 
-      
-  
       // populate this.categories from categoryService
       this.categoryService.getCategories().subscribe((categories) => {
         this.categories$ = categories;
@@ -60,7 +59,6 @@ export class SearchComponent {
         product.title.toLowerCase().includes(this.searchTerm.toLowerCase()) && 
       (this.selectedCategory ? product.category === this.selectedCategory.toLowerCase() : true)
     );
-    this.filteredProductsEmitter.emit(this.filteredProducts);
+    this.filteredProductsEmitter.emit(this.filteredProducts);            
   }
-  
 }

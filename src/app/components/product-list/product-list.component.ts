@@ -1,16 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../services/product.service';
-import { Product, ProductResponse } from '../../models/product';
+import { Component } from '@angular/core';
+import { Product } from '../../models/product';
 import { FormsModule } from '@angular/forms';
-import { NgForOf } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../services/cart.service';
-import { Category } from '../../models/category';
-import { CategoryService } from '../../services/category.service';
-import { NgxStarsModule } from 'ngx-stars';
 import { ParoductCardComponent } from "../paroduct-card/paroduct-card.component";
 import { SearchComponent } from "../search/search.component";
 
@@ -18,12 +12,7 @@ import { SearchComponent } from "../search/search.component";
   selector: 'app-product-list',
   standalone: true,
   imports: [
-    NgForOf,
-    CommonModule,
-    RouterLink,
-    RouterModule,
-    FormsModule,
-    NgxStarsModule,
+    NgFor,
     ParoductCardComponent,
     SearchComponent
 ],
@@ -35,5 +24,7 @@ export class ProductListComponent {
   
   handleFilteredProductsEmitter(data: Product[]){
     this.filteredProducts = data;
+    console.log(data);
+    
   }
 }
