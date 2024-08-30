@@ -10,6 +10,10 @@ export interface Product {
   brand: string;
   images: string[];
   showMore: boolean;
+  weight: number;
+  warrantyInformation : string;
+  shippingInformation: string;
+  availabilityStatus: string;
 }
 
 

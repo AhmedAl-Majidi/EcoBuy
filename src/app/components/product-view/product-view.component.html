@@ -15,10 +15,33 @@
           <p class="card-text">
             <strong>Category:</strong> {{ product.category }}
           </p>
-          <p class="card-text">
+          <!-- <p class="card-text">
             <strong>Price:</strong> {{ product.price | currency : "USD" }}
+          </p> -->
+          <p class="card-text">
+            <strong>{{ product.price }}$</strong>
+            <small class="text-muted mx-2"
+              >{{ product.discountPercentage }}% off</small
+            >
           </p>
-          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text">
+            <strong>Stock:</strong> {{ product.stock}}
+          </p>
+          <p class="card-text">
+            <strong>Weight:</strong> {{ product.weight }}
+          </p>
+          <p class="card-text">
+            <strong>Warranty Information:</strong> {{ product.warrantyInformation }}
+          </p>
+          <p class="card-text">
+            <strong>Shipping Information:</strong> {{ product.shippingInformation }}
+          </p>
+          <p class="card-text">
+            <strong>Availability Status:</strong> {{ product.availabilityStatus }}
+          </p>
+          <p class="card-text">
+            <strong>Description:</strong>{{ product.description }}
+          </p>
           <button
             type="button"
             class="btn btn-light mt-3 w-100"
