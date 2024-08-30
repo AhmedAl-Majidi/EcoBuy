@@ -4,12 +4,13 @@ import { ProductService } from '../../services/product.service';
 import { map } from 'rxjs';
 import { Product } from '../../models/product';
 import { CartService } from '../../services/cart.service';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-view',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CommonModule ,CurrencyPipe],
   templateUrl: './product-view.component.html',
   styleUrl: './product-view.component.css'
 })
@@ -27,6 +28,7 @@ export class ProductViewComponent implements OnInit{
      private productService: ProductService,
      private _route: ActivatedRoute,
      private cartService: CartService,
+     private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -57,22 +59,23 @@ export class ProductViewComponent implements OnInit{
 
           if (product.images) {
           }
+
+          
         });
       });
   }
- // add to cart
- addToCart(): void {
-  this.cartService.addProduct({
-    id: this.product.id,
-    title: this.product.title,
-    price: this.product.price,
-    quantity: this.quantity,
-    images: this.product.images,
-  });
-
-
-
-}
-
+  // add to cart
+  addToCart(): void {
+    this.cartService.addProduct({
+      id: this.product.id,
+      title: this.product.title,
+      price: this.product.price,
+      quantity: this.quantity,
+      images: this.product.images,
+    });
+  }
+  viewImages(id: number): void {
+    this.router.navigate(['/product-images', id]);
+  }
 }
 

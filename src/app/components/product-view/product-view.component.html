@@ -1,12 +1,19 @@
 <div class="container mt-4">
   <div class="card shadow-sm p-3 mb-5 bg-white rounded">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img
+      <div class="col-md-4 d-flex flex-column align-items-center">
+        <div>
+          <img
           class="product-image"
           src="{{ product.images[0] }}"
           alt="{{ product.title }}"
-        />
+          />
+        </div>
+        <div>
+          <button class="btn btn-secondary mt-3 p-1" (click)="viewImages(product.id)">
+            More images
+          </button>
+        </div>
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -44,7 +51,7 @@
           </p>
           <button
             type="button"
-            class="btn btn-light mt-3 w-100"
+            class="btn btn-secondary mt-3 w-100"
             (click)="addToCart()"
           >
             Add to cart
