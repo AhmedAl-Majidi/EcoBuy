@@ -80,6 +80,8 @@ cartData={
     );
     this.cartData.products = updatedProducts;
     this.cartData.total = this.getCartTotal();
+    // 
+    this.cartData.totalCount = this.getCartTotalCount();
     this.cartData$.next({ ...this.cartData });
     localStorage.setItem('cart', JSON.stringify(this.cartData));
     alert("Product removed from cart")
