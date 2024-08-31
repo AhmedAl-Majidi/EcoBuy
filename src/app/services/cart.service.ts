@@ -7,7 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
 cartData={
   products: [] as any[], 
-  total: 0
+  total: 0,
+  totalCount: 0
 }
 
   cartData$ = new BehaviorSubject(this.cartData);
@@ -36,8 +37,6 @@ cartData={
       let product = updatedProducts[productIndex];
 
       if (quantity) {
-        console.log('if');
-
         updatedProducts[productIndex] = {
           ...product,
           quantity: quantity,
@@ -52,7 +51,8 @@ cartData={
       }      
     }  
     this.cartData.total = this.getCartTotal();
-    
+    // 
+    this.cartData.totalCount = this.getCartTotalCount();
   }
 
   // Total price
@@ -62,6 +62,15 @@ cartData={
       (prod) => (totalSum += prod.price * prod.quantity)
     );
 
+    return totalSum;
+  }
+
+  // Total count
+  getCartTotalCount(): number {
+    let totalSum = 0;
+    this.cartData.products.forEach(
+      (prod) => (totalSum += prod.quantity)
+    );
     return totalSum;
   }
   
@@ -91,8 +100,10 @@ cartData={
 
     this.cartData.products = updatedProducts;
     this.cartData.total = this.getCartTotal();
+    // 
+    this.cartData.totalCount = this.getCartTotalCount();
+    // 
     this.cartData$.next({ ...this.cartData });
-    console.log(this.cartData.products);
     localStorage.setItem('cart', JSON.stringify(this.cartData));
   }
 }

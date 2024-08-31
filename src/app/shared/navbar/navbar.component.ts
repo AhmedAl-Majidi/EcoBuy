@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { Router } from '@angular/router';
+import { CartComponent } from '../../components/cart/cart.component';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +14,16 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-  constructor(private router: Router) { }
+  totalCartCount: number = 0
+  constructor(
+     private router: Router
+    ,private cartService: CartService
+  ) {}
   openCart(): void {
     this.router.navigate(['/cart']);
   }
+
+  ngDoCheck(): void {
+    this.totalCartCount = this.cartService.cartData.totalCount;
+    }
 }

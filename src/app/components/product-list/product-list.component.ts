@@ -24,7 +24,7 @@ export class ProductListComponent {
   
   handleFilteredProductsEmitter(data: Product[]){
     this.filteredProducts = data;
-    console.log(data);
-    
   }
+
+  
 }

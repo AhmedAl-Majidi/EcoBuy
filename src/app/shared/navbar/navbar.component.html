@@ -13,7 +13,16 @@
             <a class="nav-link" routerLink="/product-create" routerLinkActive="active" ariaCurrentWhenActive="page">Create Product</a>
           </li>
         </ul>
-        <a  (click)="openCart()"><i class="fa fa-shopping-cart"></i></a>
+        <div class="d-flex align-items-center">
+          <div>
+            <a  (click)="openCart()"><i class="fa fa-shopping-cart"></i></a>
+
+          </div>
+          <div class="total-cart-count bg-secondary text-white mx-2 rounded-circle text-center">
+            {{totalCartCount}}
+          </div>
+          
+        </div>
       </div>
     </div>
   </nav>  

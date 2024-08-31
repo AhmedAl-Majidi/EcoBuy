@@ -39,7 +39,6 @@ export class CartComponent {
   }
 
   updateCart(id: number, quantity: number): void {
-    console.log({ id, quantity });
     this.cartService.updateCart(id, quantity);
   }
 }
