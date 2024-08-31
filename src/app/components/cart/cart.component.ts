@@ -23,7 +23,7 @@ export class CartComponent {
   ngOnInit(): void {
     this.cartService.cartData$.subscribe((data) => {
       this.cartData = data;
-    })    
+    }) 
   }
 
   removeCartItem(id: number): void {

@@ -4,11 +4,11 @@
   <!-- product cards -->
   <div class="row">
     <div
+      data-aos="fade-right"
       class="col-sm-12 col-md-6 col-lg-3 mb-4"
       *ngFor="let product of filteredProducts"
     >
     <app-paroduct-card [InProduct] = "product"></app-paroduct-card>
-
     </div>
   </div>
 </div>

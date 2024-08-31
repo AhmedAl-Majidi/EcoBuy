@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ParoductCardComponent } from "../paroduct-card/paroduct-card.component";
 import { SearchComponent } from "../search/search.component";
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-product-list',
@@ -26,5 +27,8 @@ export class ProductListComponent {
     this.filteredProducts = data;
   }
 
+  ngOnInit(){
+    AOS.init();   
+  }
   
 }
