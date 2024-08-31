@@ -29,7 +29,7 @@ export class ProductViewComponent implements OnInit{
      private _route: ActivatedRoute,
      private cartService: CartService,
      private router: Router
-    ) { }
+    ) {}
 
   ngOnInit(): void {
     const productId = +this.route.snapshot.paramMap.get('id')!;
@@ -51,16 +51,10 @@ export class ProductViewComponent implements OnInit{
         // returns string so convert it to number
         
         this.id = parseInt(id);
-        this.productService.getSingleProduct(id).subscribe((product) => {
-          
+        this.productService.getSingleProduct(id).subscribe((product) => {    
           this.CartProduct = product;
           if (product.quantity === 0) this.quantity = 0;
-          else this.quantity = 1;
-
-          if (product.images) {
-          }
-
-          
+          else this.quantity = 1;          
         });
       });
   }
