@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../../models/product';
-import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { ParoductCardComponent } from "../paroduct-card/paroduct-card.component";
 import { SearchComponent } from "../search/search.component";
 import * as AOS from 'aos';
@@ -30,5 +26,4 @@ export class ProductListComponent {
   ngOnInit(){
     AOS.init();   
   }
-  
 }

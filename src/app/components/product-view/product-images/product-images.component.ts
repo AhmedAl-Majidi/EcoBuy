@@ -21,7 +21,6 @@ export class ProductImagesComponent {
 
       this.productService.getProductById(productId).subscribe({
         next: (product) => {
-          console.log('ProductImagesComponent: ngOnInit: next: product:', product);
           this.product = product;
         }
     });

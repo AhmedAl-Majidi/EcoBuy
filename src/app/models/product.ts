@@ -15,11 +15,3 @@ export interface Product {
   shippingInformation: string;
   availabilityStatus: string;
 }
-
-
-export interface ProductResponse {
-  products: Product[];
-  total: number;
-  skip: number;
-  limit: number;
-}  

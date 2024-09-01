@@ -15,8 +15,8 @@ cartData={
   constructor() { }
 
   addProduct(params: any): void{
-    const { id, title, price, quantity, images,  /*maxQuantity*/ } = params;
-    const product = { id, title, price, quantity, images,  /*maxQuantity*/ };
+    const { id, title, price, quantity, images} = params;
+    const product = { id, title, price, quantity, images };
     console.log(product.images);
     
     if(!this.isProductInCart(id)){
@@ -42,7 +42,6 @@ cartData={
           quantity: quantity,
         };
       } else {
-        console.log('else');
 
         updatedProducts[productIndex] = {
           ...product,
