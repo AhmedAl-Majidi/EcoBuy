@@ -85,7 +85,7 @@ cartData={
     // 
     this.cartData.totalCount = this.getCartTotalCount();
     this.cartData$.next({ ...this.cartData });
-    localStorage.setItem('cart', JSON.stringify(this.cartData));
+    // localStorage.setItem('cart', JSON.stringify(this.cartData));
     alert("Product removed from cart")
   }
   // Checks if a product is already in the cart
@@ -108,6 +108,6 @@ cartData={
     this.cartData.totalCount = this.getCartTotalCount();
     // 
     this.cartData$.next({ ...this.cartData });
-    localStorage.setItem('cart', JSON.stringify(this.cartData));
+    // localStorage.setItem('cart', JSON.stringify(this.cartData));
   }
 }
