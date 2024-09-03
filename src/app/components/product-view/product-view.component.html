@@ -50,13 +50,19 @@
           <p class="card-text">
             <strong>Description:</strong>{{ product.description }}
           </p>
-          <button
-            type="button"
-            class="btn btn-secondary mt-3 w-100"
-            (click)="addToCart()"
-          >
-            Add to cart
-          </button>
+          <div>
+            <label for="">
+              Quantity
+              <input [(ngModel)]="quantity">
+            </label>
+            <button
+              type="button"
+              class="btn btn-secondary mt-3 w-100"
+              (click)="addToCart()"
+            >
+              Add to cart
+            </button>
+          </div>
         </div>
       </div>
     </div>

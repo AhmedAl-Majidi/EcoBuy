@@ -19,16 +19,19 @@ cartData={
     const product = { id, title, price, quantity, images };
     console.log(product.images);
     
+    // If the product is not in the cart
     if(!this.isProductInCart(id)){
-
+      //  If  quantity is provided,  adds it with the specified quantity.
       if(quantity) {
         this.cartData.products.push(product);
         alert("Product added to cart")
       }
-        
+      //  If no quantity is provided, it defaults to 1. 
       else {this.cartData.products.push({ ...product, quantity: 1 });
       console.log({ ...product, quantity: 1 })};
     }
+
+    // If product is already in the cart 
     else{
 
       // Finding the updated product

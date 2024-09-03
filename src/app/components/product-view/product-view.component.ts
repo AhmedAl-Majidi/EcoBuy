@@ -6,11 +6,12 @@ import { Product } from '../../models/product';
 import { CartService } from '../../services/cart.service';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product-view',
   standalone: true,
-  imports: [CommonModule ,CurrencyPipe],
+  imports: [CommonModule ,CurrencyPipe, FormsModule],
   templateUrl: './product-view.component.html',
   styleUrl: './product-view.component.css'
 })
@@ -53,8 +54,8 @@ export class ProductViewComponent implements OnInit{
         this.id = parseInt(id);
         this.productService.getSingleProduct(id).subscribe((product) => {    
           this.CartProduct = product;
-          if (product.quantity === 0) this.quantity = 0;
-          else this.quantity = 1;          
+          // if (product.quantity === 0) this.quantity = 0;
+          // else this.quantity = 1;          
         });
       });
   }
