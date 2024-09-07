@@ -1,8 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxStarsModule } from 'ngx-stars';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../models/product';
+import { CartService } from '../../services/cart.service';
+import { ProductService } from '../../services/product.service';
 
 // 
 @Component({
@@ -14,13 +16,25 @@ import { Product } from '../../models/product';
 })
 export class ParoductCardComponent {
 
+  product!: Product;
   // 
   @Input () InProduct!: Product;
 
-  constructor(
-    private router: Router
-  ){}
 
+  constructor(
+    private router: Router,
+    private cartService: CartService,
+    private productService: ProductService
+    ){}
+
+  ngOnInit(): void {
+
+    this.productService.getProductById(this.InProduct.id).subscribe({
+      next: (product) => {
+        this.product = product;
+      }
+    });
+  }
   // Routing to product details pag
   viewDetails(id: number): void {
     this.router.navigate(['/products', id]);
@@ -29,5 +43,16 @@ export class ParoductCardComponent {
   // 
   toggleReadMore(product: any) {
     product.showMore = !product.showMore;
+  }
+
+  // add to cart
+  addToCart(): void {
+    this.cartService.addProduct({
+      id: this.product.id,
+      title: this.product.title,
+      price: this.product.price,
+      quantity: this.product.quantity,
+      images: this.product.images,
+    });
   }
 }

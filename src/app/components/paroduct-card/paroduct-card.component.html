@@ -26,35 +26,33 @@
     <div class=" d-flex flex-column justify-content-between">
 
       <!-- price and discount  -->
-      <div class="d-flex mt-3">
-        <p class="card-text">
-          <strong>{{ InProduct.price }}$</strong>
-          <small class="text-muted mx-2"
+      <div class="d-flex mt-3 justify-content-between">
+        <div>
+
+          <p class="card-text">
+            <strong>{{ InProduct.price }}$</strong>
+            <small class="text-muted mx-2"
             >{{ InProduct.discountPercentage }}% off</small
-          >
-        </p>
+            >
+          </p>
+        </div>
+        <ngx-stars
+        [readonly]="true"
+        [size]="1"
+        [initialStars]="InProduct.rating"
+        color="gold"
+        class="d-flex"
+        ></ngx-stars>
       </div>
       <!-- Rating -->
-      <div class="text-muted d-flex justify-content-between">
+      <div class="text-muted d-flex justify-content-between align-items-center">
         <p class="card-text mt-2">
           <small class="text-muted">Category: {{ InProduct.category }}</small>
         </p>
-        <ngx-stars
-          [readonly]="true"
-          [size]="1"
-          [initialStars]="InProduct.rating"
-          color="gold"
-          class="d-flex"
-        ></ngx-stars>
+        <a  (click)="addToCart()"><i class="fa fa-shopping-cart " title="Add to cart"></i></a>
+        
       </div>
-      <div>
-        <button
-        class="btn btn-dark p-1 mb-2 w-100"
-        (click)="viewDetails(InProduct.id)"
-        >
-        View Details
-      </button>
-    </div>
+     
     </div>
     </div>
   </div>

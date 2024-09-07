@@ -17,7 +17,6 @@ cartData={
   addProduct(params: any): void{
     const { id, title, price, quantity, images} = params;
     const product = { id, title, price, quantity, images };
-    console.log(product.images);
     
     // If the product is not in the cart
     if(!this.isProductInCart(id)){
@@ -28,7 +27,7 @@ cartData={
       }
       //  If no quantity is provided, it defaults to 1. 
       else {this.cartData.products.push({ ...product, quantity: 1 });
-      console.log({ ...product, quantity: 1 })};
+    };
     }
 
     // If product is already in the cart 
