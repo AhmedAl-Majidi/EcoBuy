@@ -7,8 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
 cartData={
   products: [] as any[], 
-  total: 0,
-  totalCount: 0
+  totalPrice: 0,
+  productsCount: 0
 }
 
   cartData$ = new BehaviorSubject(this.cartData);
@@ -52,28 +52,23 @@ cartData={
         };
       }      
     }  
-    this.cartData.total = this.getCartTotal();
+    this.cartData.totalPrice = this.getCartPrice();
     // 
-    this.cartData.totalCount = this.getCartTotalCount();
+    this.cartData.productsCount = this.getProductsCount();
   }
 
   // Total price
-  getCartTotal(): number {
+  getCartPrice(): number {
     let totalSum = 0;
     this.cartData.products.forEach(
       (prod) => (totalSum += prod.price * prod.quantity)
     );
-
     return totalSum;
   }
 
-  // Total count
-  getCartTotalCount(): number {
-    let totalSum = 0;
-    this.cartData.products.forEach(
-      (prod) => (totalSum += prod.quantity)
-    );
-    return totalSum;
+  // Total products in cart
+  getProductsCount(): number {
+    return this.cartData.products.length;
   }
   
   removeProduct(id: number): void {
@@ -81,9 +76,9 @@ cartData={
       (prod) => prod.id !== id
     );
     this.cartData.products = updatedProducts;
-    this.cartData.total = this.getCartTotal();
+    this.cartData.totalPrice = this.getCartPrice();
     // 
-    this.cartData.totalCount = this.getCartTotalCount();
+    this.cartData.productsCount = this.getProductsCount();
     this.cartData$.next({ ...this.cartData });
     // localStorage.setItem('cart', JSON.stringify(this.cartData));
     alert("Product removed from cart")
@@ -103,9 +98,9 @@ cartData={
     };
 
     this.cartData.products = updatedProducts;
-    this.cartData.total = this.getCartTotal();
+    this.cartData.totalPrice = this.getCartPrice();
     // 
-    this.cartData.totalCount = this.getCartTotalCount();
+    this.cartData.productsCount = this.getProductsCount();
     // 
     this.cartData$.next({ ...this.cartData });
     // localStorage.setItem('cart', JSON.stringify(this.cartData));

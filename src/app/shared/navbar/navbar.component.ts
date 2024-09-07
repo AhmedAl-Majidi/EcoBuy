@@ -24,6 +24,6 @@ export class NavbarComponent {
   }
 
   ngDoCheck(): void {
-    this.totalCartCount = this.cartService.cartData.totalCount;
+    this.totalCartCount = this.cartService.cartData.productsCount;
     }
 }

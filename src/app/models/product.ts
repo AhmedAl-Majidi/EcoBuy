@@ -14,4 +14,5 @@ export interface Product {
   warrantyInformation : string;
   shippingInformation: string;
   availabilityStatus: string;
+  quantity: number;
 }

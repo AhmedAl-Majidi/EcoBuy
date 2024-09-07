@@ -65,7 +65,7 @@ export class ProductViewComponent implements OnInit{
       id: this.product.id,
       title: this.product.title,
       price: this.product.price,
-      quantity: this.quantity,
+      quantity: this.product.quantity,
       images: this.product.images,
     });
   }
