@@ -26,6 +26,13 @@ export class CartComponent {
     }) 
   }
 
+  // Updating cart price when cart changes
+  ngDoCheck() { 
+    this.cartService.cartData$.subscribe((data) => {      
+      this.cartData.products[this.cartData.products[0]] = data.totalPrice;
+    }) 
+  }
+
   removeCartItem(id: number): void {
     this.cartService.removeProduct(id);
   }
