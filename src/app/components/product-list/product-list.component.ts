@@ -17,6 +17,7 @@ import AOS from 'aos';
 export class ProductListComponent {
   filteredProducts: Product[] = [];
 
+  // The PLATFORM_ID token is used to determine whether the code is running in a browser or server environment.
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   handleFilteredProductsEmitter(data: Product[]) {
@@ -26,7 +27,6 @@ export class ProductListComponent {
   // Check for Browser Context: Ensure that the code that accesses the document object is only executed in the browser
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      // Safe to access document here
       AOS.init();
     }
   }
