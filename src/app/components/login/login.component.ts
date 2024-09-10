@@ -21,8 +21,6 @@ export class LoginComponent {
     password: '',
   };
 
-  token: string = '';
-
   loginForm = new FormGroup({
     username: new FormControl(this.credentials.username, [Validators.required]),
     password: new FormControl(this.credentials.password, [Validators.required]),
@@ -40,7 +38,6 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.loginService.login(this.loginForm.value).subscribe((response) => {
         if (response) {
-          this.token = response.token;
           this.authenticateUser(response.token);
         }
       });
