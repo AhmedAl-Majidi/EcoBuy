@@ -15,17 +15,51 @@
         <div class="text-center">No items yet!</div>
       }
       @else{
-      <div
+      <!-- <div
         *ngFor="let product of cartData.products"
         class="d-flex align-items-center mb-3 border-bottom pb-3 justify-content-between"
-      >
+      > -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of cartData.products; let i = index ">
+            <th scope="row">{{i + 1}}</th> <!-- serial -->
+            <td><img
+              src="{{ product.images[0] }}"
+              alt="{{ product.title }}"
+              class="product-image img-fluid me-3"
+            /></td>
+            <td>{{ product.title }}</td>
+            <td>{{ product.price | currency: 'USD' }}</td>
+            <td>
+              <!-- <button
+              class="btn btn-outline-danger ms-3 d-block"
+              (click)="removeCartItem(product.id)"
+            >
+              🗑️
+            </button> -->
+            <i (click)="removeCartItem(product.id)" class="fa fa-trash deleteBtn" aria-hidden="true"></i>
+          </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3">Total:</td>
+            <td><strong>{{cartData.totalPrice | currency: 'USD'}}</strong></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
         <!-- product image and details -->
-        <div class="align-items-center d-flex">
-          <img
-            src="{{ product.images[0] }}"
-            alt="{{ product.title }}"
-            class="product-image img-fluid me-3"
-          />
+        <!-- <div class="align-items-center d-flex">
           <div class="d-flex flex-column flex-grow-1 justify-content-center">
             <div class="flex-grow-1">
               <div class="d-flex justify-content-between">
@@ -38,7 +72,7 @@
                     id="quantity"
                     name="quantity"
                     type="number"
-                    class="form-control"
+                    class="form-control text-center"
                     min="1"
                     step="1"
                     [(ngModel)]="product.quantity"
@@ -46,14 +80,11 @@
                   />
                 </label>
               </div>
+              <div>{{ product.price | currency : "USD" }}</div>
             </div>
-            <span class="text-muted"
-              >Price:{{ product.price | currency : "USD" }}</span
-            >
           </div>
         </div>
 
-        <!-- delete button -->
         <div>
           <button
             class="btn btn-outline-danger ms-3 d-block"
@@ -61,12 +92,12 @@
           >
             🗑️
           </button>
-        </div>
-      </div>
-      <div class="d-flex justify-content-between align-items-center mt-4">
+        </div> -->
+      <!-- </div> -->
+      <!-- <div class="d-flex justify-content-between align-items-center mt-4">
         <span class="fw-bold">Total:</span>
         <span #totalPrice class="fw-bold">{{ cartData.totalPrice | currency: 'USD' }}</span>
-      </div>
+      </div> -->
     }
     </div>
     <div class="card-footer d-flex justify-content-center">
