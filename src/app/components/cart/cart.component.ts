@@ -8,37 +8,34 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [NgFor,FormsModule,CurrencyPipe],
+  imports: [NgFor, FormsModule, CurrencyPipe],
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
+  styleUrl: './cart.component.css',
 })
 export class CartComponent {
   cartData: any;
 
-  constructor(
-    private cartService: CartService,
-    private router : Router
-  ){}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.cartService.cartData$.subscribe((data) => {
       this.cartData = data;
-    }) 
+    });
   }
 
   // Updating cart price when cart changes
-  ngDoCheck() { 
-    this.cartService.cartData$.subscribe((data) => {      
+  ngDoCheck() {
+    this.cartService.cartData$.subscribe((data) => {
       this.cartData.products[this.cartData.products[0]] = data.totalPrice;
-    }) 
+    });
   }
 
   removeCartItem(id: number): void {
     this.cartService.removeProduct(id);
   }
 
-  closeCart () {
-    this.router.navigate(['']);
+  closeCart() {
+    this.router.navigate(['product-list']);
   }
 
   handleCheckout() {

@@ -1,5 +1,4 @@
 <div class="container mt-4">
-  
   <div class="card shadow">
     <div class="card-header d-flex justify-content-between align-items-center">
       <h2 class="mb-0">My Cart</h2>
@@ -15,10 +14,6 @@
         <div class="text-center">No items yet!</div>
       }
       @else{
-      <!-- <div
-        *ngFor="let product of cartData.products"
-        class="d-flex align-items-center mb-3 border-bottom pb-3 justify-content-between"
-      > -->
       <table class="table">
         <thead>
           <tr>
@@ -40,12 +35,6 @@
             <td>{{ product.title }}</td>
             <td>{{ product.price | currency: 'USD' }}</td>
             <td>
-              <!-- <button
-              class="btn btn-outline-danger ms-3 d-block"
-              (click)="removeCartItem(product.id)"
-            >
-              🗑️
-            </button> -->
             <i (click)="removeCartItem(product.id)" class="fa fa-trash deleteBtn" aria-hidden="true"></i>
           </td>
           </tr>
@@ -58,46 +47,6 @@
           </tr>
         </tfoot>
       </table>
-        <!-- product image and details -->
-        <!-- <div class="align-items-center d-flex">
-          <div class="d-flex flex-column flex-grow-1 justify-content-center">
-            <div class="flex-grow-1">
-              <div class="d-flex justify-content-between">
-                <div class="fw-bold">{{ product.title }}</div>
-              </div>
-              <div class="input-group mt-2" style="max-width: 120px">
-                <label for="quantity"
-                  >Quantity:
-                  <input
-                    id="quantity"
-                    name="quantity"
-                    type="number"
-                    class="form-control text-center"
-                    min="1"
-                    step="1"
-                    [(ngModel)]="product.quantity"
-                    (ngModelChange)="updateCart(product.id, product.quantity)"
-                  />
-                </label>
-              </div>
-              <div>{{ product.price | currency : "USD" }}</div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <button
-            class="btn btn-outline-danger ms-3 d-block"
-            (click)="removeCartItem(product.id)"
-          >
-            🗑️
-          </button>
-        </div> -->
-      <!-- </div> -->
-      <!-- <div class="d-flex justify-content-between align-items-center mt-4">
-        <span class="fw-bold">Total:</span>
-        <span #totalPrice class="fw-bold">{{ cartData.totalPrice | currency: 'USD' }}</span>
-      </div> -->
     }
     </div>
     <div class="card-footer d-flex justify-content-center">
