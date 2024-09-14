@@ -3,18 +3,30 @@
     @if(product){
     <div class="row g-0">
       <div class="col-md-4 d-flex flex-column align-items-center">
-        <div>
+        <!-- <div>
           <img
           class="product-image"
           src="{{ product.images[0] }}"
           alt="{{ product.title }}"
           />
-        </div>
-        <div>
-          <button class="btn btn-secondary mt-3 p-1" (click)="viewImages(product.id)">
-            More images
+        </div> -->
+        <!--  -->
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner product-image" *ngFor="let image of product.images; let i = index">
+            <div class="carousel-item active">
+              <img src="{{ product.images[i] }}" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
           </button>
         </div>
+        <!--  -->
       </div>
       <div class="col-md-8">
         <div class="card-body">

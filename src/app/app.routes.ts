@@ -42,11 +42,4 @@ export const routes: Routes = [
         (m) => m.CheckoutComponent
       ),
   },
-  {
-    path: 'product-images/:id',
-    loadComponent: () =>
-      import(
-        './components/product-view/product-images/product-images.component'
-      ).then((m) => m.ProductImagesComponent),
-  },
 ];

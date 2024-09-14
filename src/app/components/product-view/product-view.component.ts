@@ -11,34 +11,34 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-product-view',
   standalone: true,
-  imports: [CommonModule ,CurrencyPipe, FormsModule],
+  imports: [CommonModule, CurrencyPipe, FormsModule],
   templateUrl: './product-view.component.html',
-  styleUrl: './product-view.component.css'
+  styleUrl: './product-view.component.css',
 })
-export class ProductViewComponent implements OnInit{
+export class ProductViewComponent implements OnInit {
   product!: Product;
 
-   // cart service
-   id!: number;
-   CartProduct: any;
-   quantity!: number;
-   // 
+  // cart service
+  id!: number;
+  CartProduct: any;
+  quantity!: number;
+  //
 
   constructor(
     private route: ActivatedRoute,
-     private productService: ProductService,
-     private _route: ActivatedRoute,
-     private cartService: CartService,
-     private router: Router
-    ) {}
+    private productService: ProductService,
+    private _route: ActivatedRoute,
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     const productId = +this.route.snapshot.paramMap.get('id')!;
-    
+
     this.productService.getProductById(productId).subscribe({
       next: (product) => {
         this.product = product;
-      }
+      },
     });
 
     // Cart Observable
@@ -50,12 +50,12 @@ export class ProductViewComponent implements OnInit{
       )
       .subscribe((id) => {
         // returns string so convert it to number
-        
+
         this.id = parseInt(id);
-        this.productService.getSingleProduct(id).subscribe((product) => {    
+        this.productService.getSingleProduct(id).subscribe((product) => {
           this.CartProduct = product;
           // if (product.quantity === 0) this.quantity = 0;
-          // else this.quantity = 1;          
+          // else this.quantity = 1;
         });
       });
   }
@@ -69,8 +69,4 @@ export class ProductViewComponent implements OnInit{
       images: this.product.images,
     });
   }
-  viewImages(id: number): void {
-    this.router.navigate(['/product-images', id]);
-  }
 }
-
