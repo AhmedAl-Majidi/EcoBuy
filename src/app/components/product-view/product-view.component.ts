@@ -69,4 +69,9 @@ export class ProductViewComponent implements OnInit {
       images: this.product.images,
     });
   }
+
+  //
+  closeProduct(): void {
+    this.router.navigate(['/product-list']);
+  }
 }
