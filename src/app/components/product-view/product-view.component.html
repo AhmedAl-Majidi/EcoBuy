@@ -12,9 +12,15 @@
         </div> -->
         <!--  -->
         <div id="carouselExample" class="carousel slide">
-          <div class="carousel-inner product-image" *ngFor="let image of product.images; let i = index">
+          <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="{{ product.images[i] }}" class="d-block w-100" alt="...">
+              <img src="{{ product.images[0] }}" class="d-block w-100 product-image" alt="...">
+            </div>
+            <div class="carousel-item " *ngIf="product.images[1]">
+              <img src="{{ product.images[1] }}" class="d-block w-100 product-image" alt="...">
+            </div>
+            <div class="carousel-item " *ngIf="product.images[2]">
+              <img src="{{ product.images[2] }}" class="d-block w-100 product-image" alt="...">
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
